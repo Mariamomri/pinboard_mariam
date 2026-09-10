@@ -6,11 +6,12 @@
     <h1>All Pins (Admin)</h1>
     <table class="table">
         <thead>
-            <tr><th>Title</th><th>Author</th><th>Created</th><th></th></tr>
+            <tr><th>Image</th><th>Title</th><th>Author</th><th>Created</th><th></th></tr>
         </thead>
         <tbody>
         {% for pin in pins %}
             <tr>
+                <td><img src="{{ pin.imageName }}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"></td>
                 <td><a href="{{ path('app_pin_show', {id: pin.id}) }}">{{ pin.title }}</a></td>
                 <td>{{ pin.user.firstname }} {{ pin.user.lastname }}</td>
                 <td>{{ pin.createdAt|date('d/m/Y') }}</td>
