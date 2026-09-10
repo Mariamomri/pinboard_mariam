@@ -109,7 +109,7 @@ final class PinController extends AbstractController
         $titre = $pin->getTitle();
         $em->remove($pin);
         $em->flush();
-        $this->addFlash('info', 'The pin "' . $titre . '" was successfully deleted !');
+        $this->addFlash('error', 'The pin "' . $titre . '" was successfully deleted !');
         return $this->redirectToRoute('app_pin_index');
     }
 }
