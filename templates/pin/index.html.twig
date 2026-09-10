@@ -1,43 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pin index{% endblock %}
+{% block title %}All Pins{% endblock %}
 
 {% block body %}
-    <h1>Pin index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>ImageName</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+{% set nbPins = pins|length %}
+    <h1 align="center">All Pins ({{ nbPins }})</h1>
+    <div class="row">
         {% for pin in pins %}
-            <tr>
-                <td>{{ pin.id }}</td>
-                <td>{{ pin.title }}</td>
-                <td>{{ pin.description }}</td>
-                <td>{{ pin.imageName }}</td>
-                <td>{{ pin.createdAt ? pin.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ pin.updatedAt ? pin.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_pin_show', {'id': pin.id}) }}">show</a>
-                    <a href="{{ path('app_pin_edit', {'id': pin.id}) }}">edit</a>
-                </td>
-            </tr>
+            <div class="card col-4 my-3 mx-2" style="max-width: 18rem;">
+                <a href="{{ path('app_pin_show', {id: pin.id}) }}">
+                    <img src="{{ pin.imageName }}" class="card-img-top" alt="{{ pin.title }}" style="height: 200px; object-fit: cover;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ path('app_pin_show', {id: pin.id}) }}">{{ pin.title|u.truncate(30, '...', false) }}</a></h5>
+                    <p class="card-text">By {{ pin.user.firstname ~ " " ~ pin.user.lastname }}</p>
+                </div>
+            </div>
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+            <p>No pins yet.</p>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_pin_new') }}">Create new</a>
+    </div>
 {% endblock %}
