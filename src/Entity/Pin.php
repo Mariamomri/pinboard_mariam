@@ -7,12 +7,10 @@ use App\Repository\PinRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: PinRepository::class)]
 #[ORM\Table(name: "pins")]
 #[ORM\HasLifecycleCallbacks]
-#[ApiResource]
 class Pin
 {
     #[ORM\Id]
@@ -34,6 +32,10 @@ class Pin
     #[Assert\NotBlank()]
     #[Assert\Url()]
     private ?string $imageName = null;
+
+    #[ORM\ManyToOne(inversedBy: 'pins')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -72,6 +74,18 @@ class Pin
     public function setImageName(string $imageName): static
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
