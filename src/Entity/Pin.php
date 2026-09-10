@@ -7,6 +7,7 @@ use App\Repository\PinRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\InappropriateWords;
 
 #[ORM\Entity(repositoryClass: PinRepository::class)]
 #[ORM\Table(name: "pins")]
@@ -20,7 +21,8 @@ class Pin
 
     #[ORM\Column(length: 100)]
     #[Assert\NotBlank()]
-    #[Assert\Length(max: 100)]
+    #[Assert\Length(min: 3, max: 100)]
+    #[InappropriateWords()]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
