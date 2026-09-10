@@ -61,7 +61,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, Pin>
      */
-    #[ORM\OneToMany(targetEntity: Pin::class, mappedBy: 'user', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Pin::class, mappedBy: 'user', orphanRemoval: true, cascade: ['remove'])]
     private Collection $pins;
 
     #[ORM\Column]

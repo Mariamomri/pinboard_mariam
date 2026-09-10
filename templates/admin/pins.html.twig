@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Pins{% endblock %}
+
+{% block body %}
+    <h1>All Pins (Admin)</h1>
+    <table class="table">
+        <thead>
+            <tr><th>Title</th><th>Author</th><th>Created</th><th></th></tr>
+        </thead>
+        <tbody>
+        {% for pin in pins %}
+            <tr>
+                <td><a href="{{ path('app_pin_show', {id: pin.id}) }}">{{ pin.title }}</a></td>
+                <td>{{ pin.user.firstname }} {{ pin.user.lastname }}</td>
+                <td>{{ pin.createdAt|date('d/m/Y') }}</td>
+                <td>
+                    <a href="{{ path('app_admin_pin_delete', {id: pin.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this pin ?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

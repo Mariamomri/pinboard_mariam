@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Users{% endblock %}
+
+{% block body %}
+    <h1>All Users (Admin)</h1>
+    <table class="table">
+        <thead>
+            <tr><th>Name</th><th>Email</th><th>Pins</th><th></th></tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.pins|length }}</td>
+                <td>
+                    <a href="{{ path('app_admin_user_delete', {id: user.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Delete this user ?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
