@@ -78,3 +78,125 @@ body {
 .alert-info {
     background-color: #3a7bd5;
 }
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.85;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-secondary-pill {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.btn-secondary-pill:hover {
+    transform: translateY(-2px);
+    color: var(--color-text);
+}
+
+.hero-images {
+    position: relative;
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+}
+
+.hero-img {
+    position: absolute;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.img1 {
+    width: 150px;
+    height: 190px;
+    top: 0;
+    left: 20%;
+}
+
+.img2 {
+    width: 220px;
+    height: 280px;
+    top: 60px;
+    left: 45%;
+    z-index: 2;
+}
+
+.img3 {
+    width: 140px;
+    height: 180px;
+    top: 20px;
+    right: 0;
+}
+
+.img4 {
+    width: 160px;
+    height: 150px;
+    bottom: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-images {
+        display: none;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}

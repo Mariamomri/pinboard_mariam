@@ -3,7 +3,24 @@
 {% block title %}Pinboard - Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome to Pinboard</h1>
-    <p>Discover and share pins with the community.</p>
-    <a href="{{ path('app_pin_index') }}" class="btn btn-primary">Browse Pins</a>
+<div class="hero-section">
+    <div class="hero-text">
+        <h1>Create the board you love<br>on Pinboard</h1>
+        <p>Discover, save and share the pins that inspire you.</p>
+        <div class="hero-buttons">
+            {% if app.user %}
+                <a href="{{ path('app_pin_index') }}" class="btn-hero-primary">Browse Pins</a>
+            {% else %}
+                <a href="{{ path('app_register') }}" class="btn-hero-primary">Join Pinboard for free</a>
+                <a href="{{ path('app_login') }}" class="btn-secondary-pill">I already have an account</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero-images">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400" class="hero-img img1" alt="">
+        <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=400" class="hero-img img2" alt="">
+        <img src="https://images.unsplash.com/photo-1523419409543-a5e549c1faa8?w=400" class="hero-img img3" alt="">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400" class="hero-img img4" alt="">
+    </div>
+</div>
 {% endblock %}
