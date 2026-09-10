@@ -64,6 +64,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Pin::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $pins;
 
+    #[ORM\Column]
+    private bool $isVerified = false;
+
     public function __construct()
     {
         $this->pins = new ArrayCollection();
@@ -200,6 +203,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $pin->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
