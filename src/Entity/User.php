@@ -54,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 500)]
     #[Assert\NotBlank()]
     #[Assert\Url()]
-    private ?string $imageName = null;
+    private ?string $imageName = "https://img.magnific.com/premium-vector/silver-membership-icon-default-avatar-profile-icon-membership-icon-social-media-user-image-vector-illustration_561158-4215.jpg?semt=ais_hybrid&w=740&q=80/200x200";
 
     use Timestampable;
 
