@@ -30,9 +30,14 @@ final class PinController extends AbstractController
     #[Route(path: '/pin/create', name: 'app_pin_create')]
     public function create(Request $request, EntityManagerInterface $em): Response
     {
-        if (!$this->getUser()) {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!$user) {
             $this->addFlash('error', 'You must login to create a Pin !');
             return $this->redirectToRoute('app_login');
+        } elseif (!$user->isVerified()) {
+            $this->addFlash('error', 'You must verify your email before creating a Pin !');
+            return $this->redirectToRoute('app_pin_index');
         }
 
         $pin = new Pin();
