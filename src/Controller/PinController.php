@@ -17,6 +17,11 @@ final class PinController extends AbstractController
     #[Route(path: '/pin', name: 'app_pin_index')]
     public function index(PinRepository $repository): Response
     {
+        if (!$this->getUser()) {
+            $this->addFlash('error', 'You must login to view the pins !');
+            return $this->redirectToRoute('app_login');
+        }
+
         return $this->render('pin/index.html.twig', [
             'pins' => $repository->findAll()
         ]);
@@ -50,6 +55,11 @@ final class PinController extends AbstractController
     #[Route(path: '/pin/{id}', name: 'app_pin_show', requirements: ['id' => '\d+'])]
     public function show(Pin $pin): Response
     {
+        if (!$this->getUser()) {
+            $this->addFlash('error', 'You must login to view the pins !');
+            return $this->redirectToRoute('app_login');
+        }
+
         return $this->render('pin/show.html.twig', [
             'pin' => $pin
         ]);
