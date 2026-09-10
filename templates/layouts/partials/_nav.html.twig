@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ path('app_home') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Pinboard" height="42">
+            <img src="{{ asset('images/logo.png') }}" alt="Pinboard" height="56">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample03">
-            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-sm-0 text-center">
                 <li class="nav-item">
                     <a class="nav-link {{ app.current_route == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">Accueil</a>
                 </li>
