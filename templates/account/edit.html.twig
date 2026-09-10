@@ -3,6 +3,11 @@
 {% block title %}Edit My Account{% endblock %}
 
 {% block body %}
-    <h1>Edit My Account</h1>
-    {{ form(userForm) }}
+    <div class="auth-card">
+        <h1>Edit My Account</h1>
+        {{ form_start(userForm) }}
+            {{ form_widget(userForm) }}
+            <button type="submit" class="w-100">Save changes</button>
+        {{ form_end(userForm) }}
+    </div>
 {% endblock %}

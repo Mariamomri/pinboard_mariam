@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-light bg-white shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ path('app_home') }}">Pinboard</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,30 +7,27 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ app.current_route == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">Home</a>
+                    <a class="nav-link {{ app.current_route == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">Accueil</a>
                 </li>
                 {% if app.user %}
                     <li class="nav-item">
-                        <a class="nav-link {{ app.current_route == 'app_pin_create' ? 'active' : '' }}" href="{{ path('app_pin_create') }}">Create a Pin</a>
+                        <a class="nav-link {{ app.current_route == 'app_pin_create' ? 'active' : '' }}" href="{{ path('app_pin_create') }}">Créer un Pin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ app.current_route starts with 'app_account' ? 'active' : '' }}" href="{{ path('app_account') }}">My Profile</a>
+                        <a class="nav-link {{ app.current_route starts with 'app_account' ? 'active' : '' }}" href="{{ path('app_account') }}">Mon profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                        <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {{ app.current_route == 'app_register' ? 'active' : '' }}" href="{{ path('app_register') }}">Sign Up</a>
+                        <a class="nav-link {{ app.current_route == 'app_register' ? 'active' : '' }}" href="{{ path('app_register') }}">S'inscrire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ app.current_route == 'app_login' ? 'active' : '' }}" href="{{ path('app_login') }}">Login</a>
+                        <a class="nav-link {{ app.current_route == 'app_login' ? 'active' : '' }}" href="{{ path('app_login') }}">Se connecter</a>
                     </li>
                 {% endif %}
             </ul>
-            <button class="btn-theme-toggle" data-controller="theme" data-action="click->theme#toggle">
-                <span data-theme-target="icon">☀️</span> Theme
-            </button>
         </div>
     </div>
 </nav>

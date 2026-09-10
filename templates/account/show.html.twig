@@ -3,10 +3,14 @@
 {% block title %}My Account{% endblock %}
 
 {% block body %}
-    <h1>My Account</h1>
-    <img src="{{ app.user.imageName }}" alt="Profile picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
-    <p>{{ app.user.firstname }} {{ app.user.lastname }}</p>
-    <p>{{ app.user.email }}</p>
-    <p>Member since {{ app.user.createdAt|date('d/m/Y') }}</p>
-    <a href="{{ path('app_account_edit') }}" class="btn btn-primary">Edit my profile</a>
+    <div class="auth-card">
+        <h1>My Account</h1>
+        <img src="{{ app.user.imageName }}" alt="Profile picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+        <p><strong>{{ app.user.firstname }} {{ app.user.lastname }}</strong></p>
+        <p>{{ app.user.email }}</p>
+        <p>Member since {{ app.user.createdAt|date('d/m/Y') }}</p>
+        <div class="text-center">
+            <a href="{{ path('app_account_edit') }}" class="btn btn-primary">Edit my profile</a>
+        </div>
+    </div>
 {% endblock %}

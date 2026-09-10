@@ -4,8 +4,8 @@
 
 {% block body %}
 {% set nbPins = pins|length %}
-    <h1 align="center">All Pins ({{ nbPins }})</h1>
-    <div class="row">
+    <h1 class="text-center mb-4">All Pins ({{ nbPins }})</h1>
+    <div class="row justify-content-center">
         {% for pin in pins %}
             <div class="card col-4 my-3 mx-2" style="max-width: 270px;">
                 <a href="{{ path('app_pin_show', {id: pin.id}) }}">

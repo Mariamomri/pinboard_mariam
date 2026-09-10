@@ -3,10 +3,8 @@
 {% block title %}Edit Pin{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <h1>Edit "{{ pin.title }}"</h1>
-            {{ include('pin/_form.html.twig') }}
-        </div>
+    <div class="auth-card">
+        <h1>Edit "{{ pin.title }}"</h1>
+        {{ include('pin/_form.html.twig') }}
     </div>
 {% endblock %}

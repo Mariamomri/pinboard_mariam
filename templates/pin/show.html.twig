@@ -3,25 +3,23 @@
 {% block title %}{{ pin.title }}{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div align="center" class="col-md-6 mx-auto">
-        <article>
-            <h1>{{ pin.title }}</h1>
-            <img src="{{ pin.imageName }}" style="max-width: 600px;">
-            <p>{{ pin.description|nl2br }}</p>
-            <small>
-                <p>Posted {{ pin.createdAt|date('d/m/Y') }}</p>
-                <p>Updated {{ pin.updatedAt|date('d/m/Y H:i') }}</p>
-                <p>By {{ pin.user.firstname ~ " " ~ pin.user.lastname }}</p>
-            </small>
-        </article>
-        <div>
-            {% if app.user and app.user.email is same as(pin.user.email) %}
-                <a class="btn btn-primary btn-sm" href="{{ path('app_pin_edit', {id: pin.id}) }}">Edit Pin</a>
-                <a class="btn btn-danger btn-sm" href="{{ path('app_pin_delete', {id: pin.id}) }}" onclick="return confirm('Are you sure you want to delete this pin?')">Delete</a>
-            {% endif %}
-            <a class="btn btn-secondary btn-sm" href="{{ path('app_pin_index') }}">Go Back</a>
-        </div>
+<div class="auth-card" style="max-width: 640px;">
+    <article>
+        <h1>{{ pin.title }}</h1>
+        <img src="{{ pin.imageName }}" style="max-width: 100%; border-radius: 16px;">
+        <p>{{ pin.description|nl2br }}</p>
+        <small class="d-block text-center text-muted">
+            <p>Posted {{ pin.createdAt|date('d/m/Y') }}</p>
+            <p>Updated {{ pin.updatedAt|date('d/m/Y H:i') }}</p>
+            <p>By {{ pin.user.firstname ~ " " ~ pin.user.lastname }}</p>
+        </small>
+    </article>
+    <div class="text-center">
+        {% if app.user and app.user.email is same as(pin.user.email) %}
+            <a class="btn btn-primary btn-sm" href="{{ path('app_pin_edit', {id: pin.id}) }}">Edit Pin</a>
+            <a class="btn btn-danger btn-sm" href="{{ path('app_pin_delete', {id: pin.id}) }}" onclick="return confirm('Are you sure you want to delete this pin?')">Delete</a>
+        {% endif %}
+        <a class="btn btn-secondary btn-sm" href="{{ path('app_pin_index') }}">Go Back</a>
     </div>
 </div>
 {% endblock %}
