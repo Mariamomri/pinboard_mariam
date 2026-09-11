@@ -345,13 +345,26 @@ label {
     order: 2;
 }
 
-.auth-card {
-    order: 1;
+.auth-page {
+    display: block;
+    position: relative;
+}
+
+.auth-note {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 260px);
+    transform: translateY(-50%) rotate(-3deg);
+    max-width: 320px;
 }
 
 @media (max-width: 768px) {
     .auth-note {
-        order: -1;
+        position: static;
+        display: block;
+        margin: 0 auto 20px;
         max-width: 220px;
+        transform: rotate(-3deg);
+        text-align: center;
     }
 }
