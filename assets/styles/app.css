@@ -329,3 +329,29 @@ label {
         margin: 20px auto;
     }
 }
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.auth-note {
+    max-width: 320px;
+    transform: rotate(-3deg);
+    order: 2;
+}
+
+.auth-card {
+    order: 1;
+}
+
+@media (max-width: 768px) {
+    .auth-note {
+        order: -1;
+        max-width: 220px;
+    }
+}
