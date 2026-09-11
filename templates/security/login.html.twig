@@ -3,6 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+    <div style="display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap;">
     <div class="auth-card">
         <form method="post">
             {% if error %}
@@ -36,5 +37,7 @@
                 Sign in
             </button>
         </form>
+    </div>
+    <img src="{{ asset('images/email.png') }}" alt="Demo account" style="max-width: 320px; transform: rotate(-3deg);">
     </div>
 {% endblock %}
