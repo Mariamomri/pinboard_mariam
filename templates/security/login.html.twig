@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div style="display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap;">
+    <div style="position: relative;">
     <div class="auth-card">
         <form method="post">
             {% if error %}
@@ -38,6 +38,6 @@
             </button>
         </form>
     </div>
-    <img src="{{ asset('images/email.png') }}" alt="Demo account" style="max-width: 320px; transform: rotate(-3deg);">
+    <img src="{{ asset('images/email.png') }}" alt="Demo account" style="max-width: 320px; transform: rotate(-3deg); position: absolute; top: 50%; left: calc(50% + 280px); transform: translateY(-50%) rotate(-3deg);">
     </div>
 {% endblock %}
